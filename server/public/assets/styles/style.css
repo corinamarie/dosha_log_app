@@ -1,0 +1,10 @@
+body {
+    font-family: "Courier New";
+    color: white;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: #0d3349;
+    border-radius: 2px;
+}

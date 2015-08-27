@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html ng-app="doshApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>dosha log app</title>
+
+        <!--STYLES-->
+        <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/assets/styles/style.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+
+        <header class="col-xs-12 jumbotron">
+            <h1>dosha log</h1>
+            <h3>track your balance or whatever</h3>
+        </header>
+        <form novalidate>
+
+            <button type="submit" id="takeQuizBtn">take quiz as a guest</button>
+
+            <input type="text" name="email" placeholder="username@doshalove.com" ng-model="user.email">
+            <input type="text" name="password" placeholder="password" ng-model="user.password">
+
+        </form>
+
+        <p>{{user.password}} {{user.email}}</p>
+
+        <div><button><a href="#home">home</a></button></div>
+
+        <div>
+            <main ng-view></main>
+        </div>
+
+
+        <!--SCRIPTS-->
+        <script type="text/javascript" src="/vendors/angular/angular.min.js"></script>
+        <script type="text/javascript" src="/vendors/angular-route/angular-route.min.js"></script>
+        <script type="text/javascript" src="/assets/scripts/app.min.js"></script>
+        <script type="text/javascript" src="/assets/scripts/controller.min.js"></script>
+
+    </body>
+</html>
