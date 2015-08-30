@@ -1,0 +1,15 @@
+<!-- quiz page: this will be the quiz page, that will cycle through a list of
+    question "cards" -->
+
+<div class="col-xs-offset-1 col-xs-10 panel panel-default questioncard container-fluid" ng-repeat="questioncard in questions">
+    <div class="panel-body col-xs-6">
+        <p class="question">{{questioncard.question}}</p>
+    </div>
+    <div class="panel-body col-xs-6">
+        <ul class="answer list-unstyled">
+            <li><button class="vataBtn">{{questioncard.answer.vata}}</button></li>
+            <li><button class="pittaBtn">{{questioncard.answer.pitta}}</button></li>
+            <li><button class="kaphaBtn">{{questioncard.answer.kapha}}</button></li>
+        </ul>
+    </div>
+</div>

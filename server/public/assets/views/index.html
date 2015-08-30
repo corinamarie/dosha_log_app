@@ -10,25 +10,32 @@
         <link href="/assets/styles/style.css" rel="stylesheet" type="text/css">
     </head>
 
-    <body>
+    <body class="container-fluid">
 
         <header class="col-xs-12 jumbotron">
+            <!-- NAVBAR -->
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#home">home</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#register">create account</a></li>
+                        <li><a href="#welcome">welcome</a></li>
+                        <li><a href="#quiz">take quiz</a></li>
+                        <li><a href="#results">results</a></li>
+                        <li><a href="#history">history</a></li>
+                        <li><a href="#logout">log out</a></li>
+                    </ul>
+                </div>
+            </nav>
+
             <h1>dosha log</h1>
             <h3>track your balance or whatever</h3>
+
         </header>
-        <form novalidate>
 
-            <button type="submit" id="takeQuizBtn">take quiz as a guest</button>
-
-            <input type="text" name="email" placeholder="username@doshalove.com" ng-model="user.email">
-            <input type="text" name="password" placeholder="password" ng-model="user.password">
-
-        </form>
-
-        <p>{{user.password}} {{user.email}}</p>
-
-        <div><button><a href="#home">home</a></button></div>
-
+        <!-- ANGULAR-CLIENT-SIDE-ROUTING -->
         <div>
             <main ng-view></main>
         </div>
