@@ -1,18 +1,18 @@
 body {
     font-family: "Courier New";
     color: black;
-    background-color: #3c510c;
+    background-color: #2D3C41;
     background-image: url('../images/mala.png') no-repeat;
     text-align: center;
 }
 
-/*.questioncard {*/
-    /*display: none;*/
-/*}*/
+#questioncard {
+    background-color: #7499A7;
+}
 
 .jumbotron {
     text-align: center;
-    background-color: #0d3349;
+    background-color: #3F535B;
     border-radius: 2px;
     color: white;
 }

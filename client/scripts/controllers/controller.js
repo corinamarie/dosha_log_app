@@ -1,4 +1,11 @@
-//primary/ dosha controller
+//VARIABLES
+
+var vataCount = 0,
+    pittaCount = 0,
+    kaphaCount = 0,
+    userDoshaResults = {};
+
+//primary dosha app controller
 doshApp.controller('DoshaController', ['$scope', function($scope){
     console.log('dosha controller is up');
 
@@ -6,13 +13,75 @@ doshApp.controller('DoshaController', ['$scope', function($scope){
 
 }]);
 
-//dosha quiz controller
-doshApp.controller('QuizController', ['$scope', function($scope){
-    console.log('dosha controller is up');
+doshApp.controller('ResultsController', ['$scope', function($scope){
+    console.log('results controller is up');
 
     //
 
-    //dosha quiz questions
+}]);
+
+//dosha quiz controller
+doshApp.controller('QuizController', ['$scope', function($scope){
+    console.log('quiz controller is up');
+
+    //variable to count and move through question slides
+    $scope.slideCounter = 0;
+
+    //vata, pitta, & kapha questioncard button logic
+    //function for moving to the next card, activate within conditional below per each button choice click event
+
+
+    //variable counters for each dosha, with functions to save each click to global variables
+    $scope.vataBtnCounter = function(){
+        vataCount += 1;
+        $scope.slideCounter += 1;
+        console.log("vata points: " + vataCount);
+        $scope.quizResult();
+    };
+    $scope.pittaBtnCounter = function(){
+        pittaCount += 1;
+        $scope.slideCounter += 1;
+        console.log("pitta points: " + pittaCount);
+        $scope.quizResult();
+    };
+    $scope.kaphaBtnCounter = function(){
+        kaphaCount += 1;
+        $scope.slideCounter += 1;
+        console.log("kapha points: " + kaphaCount);
+        $scope.quizResult();
+    };
+
+    //this should give a variable to use in html to display current question & corresponding answers
+    $scope.currentQuestionCard = $scope.questions[$scope.slideCounter];
+    $scope.currentDisplayStatus = $scope.questions[$scope.slideCounter].show;
+    $scope.currentQuestion = $scope.questions[$scope.slideCounter].question;
+    $scope.currentVataAnswer = $scope.questions[$scope.slideCounter].answer.vata;
+
+    //function to flip to new slide when a button choice is clicked
+    $scope.nextQuestion = function(){
+        $scope.questions[$scope.slideCounter].show = false;
+        $scope.questions[$scope.slideCounter + 1].show = true;
+    };
+
+    //function to show & hide questions
+    $scope.displayQuestion = function(){
+        if($scope.currentDisplayStatus == true){
+            //show slide
+        } else {
+            //hide slide
+        }
+    };
+
+    //function to store quiz results to user object array
+    $scope.quizResult = function(){
+        userDoshaResults.quizResult = [vataCount, pittaCount, kaphaCount];
+        console.log(userDoshaResults.quizResult);
+        return userDoshaResults.quizResult;
+        //add in current date/time as object property per quiz taken
+    };
+
+    //dosha quiz question data "schema"
+    //questions from David Frawley's "Yoga & Ayurveda"
     $scope.questions = [
         {
             question: 'height',
@@ -20,7 +89,8 @@ doshApp.controller('QuizController', ['$scope', function($scope){
                 vata: 'tall or very short',
                 pitta: 'medium',
                 kapha: 'usually short but can be tall and large'
-            }
+            },
+            show: true
         },
         {
             question: 'frame',

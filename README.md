@@ -13,3 +13,10 @@ to do:
 questions:
 
 >
+
+accomplished:
+
+>created button functions for answer buttons' counters
+>built out some more html pages
+>created "json" data code for quiz questions
+>

@@ -24,7 +24,7 @@ doshApp.config(['$routeProvider', function($routeProvider){
         }).
         when('/results', {
             templateUrl: "assets/views/routes/results.html",
-            controller: 'DoshaController'
+            controller: 'ResultsController'
         }).
         when('/welcome', {
             templateUrl: "assets/views/routes/welcome.html",
