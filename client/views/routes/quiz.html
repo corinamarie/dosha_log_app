@@ -1,15 +1,15 @@
 <!-- quiz page: this will be the quiz page, that will cycle through a list of
     question "cards" -->
 
-<div class="col-xs-offset-2 col-xs-8 panel panel-default container-fluid questioncard">
+<div class="col-xs-offset-2 col-xs-8 panel panel-default container-fluid questionCard" ng-repeat="q in questions" ng-show="q.show == true">
     <div class="panel-body col-xs-6">
-        <p class="question">{{currentQuestion}}</p>
+        <p class="question">{{q.question}}</p>
     </div>
-    <div class="panel-body col-xs-6" ng-click="nextQuestion()">
+    <div class="panel-body col-xs-6">
         <ul class="answer list-unstyled">
-            <li><button class="vataBtn" ng-click="vataBtnCounter()">{{currentQuestion}}</button></li>
-            <li><button class="pittaBtn" ng-click="pittaBtnCounter()">{{currentVataAnswer}}</button></li>
-            <li><button class="kaphaBtn" ng-click="kaphaBtnCounter()">{{currentVataAnswer}}</button></li>
+            <li><button class="vataBtn" ng-click="vataBtnCounter()">{{q.answer.vata}}</button></li>
+            <li><button class="pittaBtn" ng-click="pittaBtnCounter()">{{q.answer.pitta}}</button></li>
+            <li><button class="kaphaBtn" ng-click="kaphaBtnCounter()">{{q.answer.kapha}}</button></li>
         </ul>
     </div>
 </div>
