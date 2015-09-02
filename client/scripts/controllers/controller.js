@@ -1,11 +1,16 @@
-//VARIABLES
+//////////////////VARIABLES
 
 var vataCount = 0,
     pittaCount = 0,
     kaphaCount = 0,
     userDoshaResults = {};
 
-//primary dosha app controller
+/////////////////FACTORIES
+//doshApp.factory('ChangeRoute', ['$location', 'route', function($location, route){
+//
+//}]);
+
+////////////////primary dosha app controller
 doshApp.controller('DoshaController', ['$scope', function($scope){
     console.log('dosha controller is up');
 
@@ -16,19 +21,23 @@ doshApp.controller('DoshaController', ['$scope', function($scope){
 
 doshApp.controller('ResultsController', ['$scope', function($scope){
     console.log('results controller is up');
+    console.log(userDoshaResults);
 
-    //
+    //recapturing global variable data from quiz results
+    $scope.vataCount = vataCount;
+    $scope.pittaCount = pittaCount;
+    $scope.kaphaCount = kaphaCount;
 
 }]);
 
-//dosha quiz controller
+///////////////dosha quiz controller
 doshApp.controller('QuizController', ['$scope', '$location', function($scope, $location){
     console.log('quiz controller is up');
 
     //resetting dosha quiz variables
-    var vataCount = 0,
-        pittaCount = 0,
-        kaphaCount = 0;
+    vataCount = 0;
+    pittaCount = 0;
+    kaphaCount = 0;
 
     //dosha quiz question data "schema"
     //questions from David Frawley's "Yoga & Ayurveda"
@@ -344,7 +353,6 @@ doshApp.controller('QuizController', ['$scope', '$location', function($scope, $l
     console.log($scope.currentDisplayStatus);
     console.log($scope.questions[$scope.slideCounter + 1].show);
     $scope.currentQuestion = $scope.questions[$scope.slideCounter].question;
-    $scope.currentVataAnswer = $scope.questions[$scope.slideCounter].answer.vata;
     $scope.nextQuestion = $scope.questions[$scope.slideCounter + 1].question;
 
     //function to flip to new slide when a button choice is clicked
@@ -353,13 +361,8 @@ doshApp.controller('QuizController', ['$scope', '$location', function($scope, $l
             $scope.questions[$scope.slideCounter].show = false;
             $scope.questions[$scope.slideCounter + 1].show = true;
         } else {
-            $scope.changeRoute('/results');
+            $location.path('/results');
         };
-    };
-
-    //route changing function to navigate to other html pages
-    $scope.changeRoute = function(level){
-        $location.path(level);
     };
 
     //function to store quiz results to user object array
