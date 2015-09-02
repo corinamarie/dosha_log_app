@@ -1,14 +1,14 @@
 <!-- home page: user sign in fields and submit button, option to take quiz as a guest -->
 
 <div>
-    <button type="submit" class="takeQuizBtn">take quiz as a guest</button>
+    <button type="submit" class="takeQuizBtn btn btn-success" ng-click="changeRoute('/quiz')">take quiz as a guest</button>
 </div>
 
 <form novalidate>
 
     <input type="text" name="username" placeholder="enter username" ng-model="user.name" required>
     <input type="password" name="password" placeholder="enter new password" ng-model="user.password" required>
-    <button type="submit" class="takeQuizBtn">log in</button>
+    <button type="submit" class="takeQuizBtn btn btn-success">log in</button>
 
 </form>
 

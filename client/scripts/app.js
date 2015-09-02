@@ -16,7 +16,7 @@ doshApp.config(['$routeProvider', function($routeProvider){
         }).
         when('/history', {
             templateUrl: "assets/views/routes/history.html",
-            controller: 'DoshaController'
+            controller: 'ResultsController'
         }).
         when('/quiz', {
             templateUrl: "assets/views/routes/quiz.html",

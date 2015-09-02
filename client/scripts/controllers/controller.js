@@ -10,15 +10,18 @@ var vataCount = 0,
 //
 //}]);
 
-////////////////primary dosha app controller
-doshApp.controller('DoshaController', ['$scope', function($scope){
+////////////////primary dosha app controller -- controls Welcome page
+doshApp.controller('DoshaController', ['$scope', '$location', function($scope, $location){
     console.log('dosha controller is up');
 
-    //
+    //change route function
+    $scope.changeRoute = function(route){
+        $location.path(route);
+    };
 
 }]);
 
-
+///////////////results controller controls Results & History pages
 doshApp.controller('ResultsController', ['$scope', function($scope){
     console.log('results controller is up');
     console.log(userDoshaResults);
@@ -30,7 +33,7 @@ doshApp.controller('ResultsController', ['$scope', function($scope){
 
 }]);
 
-///////////////dosha quiz controller
+///////////////dosha quiz controller controls Quiz page
 doshApp.controller('QuizController', ['$scope', '$location', function($scope, $location){
     console.log('quiz controller is up');
 
@@ -319,9 +322,11 @@ doshApp.controller('QuizController', ['$scope', '$location', function($scope, $l
     //variable to count and move through question slides
     $scope.slideCounter = 0;
     console.log("slideCounter var: ", $scope.slideCounter);
-    //vata, pitta, & kapha questioncard button logic
-    //function for moving to the next card, activate within conditional below per each button choice click event
 
+    //change route function
+    $scope.changeRoute = function(route){
+        $location.path(route);
+    };
 
     //variable counters for each dosha, with functions to save each click to global variables
     $scope.vataBtnCounter = function(){
@@ -346,7 +351,7 @@ doshApp.controller('QuizController', ['$scope', '$location', function($scope, $l
         $scope.slideCounter += 1;
     };
 
-    //this should give a variable to use in html to display current question & corresponding answers
+    //variables to test things
     console.log("Before variables: ", $scope.slideCounter);
     $scope.currentQuestionCard = $scope.questions[$scope.slideCounter];
     $scope.currentDisplayStatus = $scope.questions[$scope.slideCounter].show;
@@ -361,7 +366,8 @@ doshApp.controller('QuizController', ['$scope', '$location', function($scope, $l
             $scope.questions[$scope.slideCounter].show = false;
             $scope.questions[$scope.slideCounter + 1].show = true;
         } else {
-            $location.path('/results');
+            //POST QUIZ RESULTS TO MONGODB
+            $scope.changeRoute('/results');
         };
     };
 
