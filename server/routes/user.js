@@ -1,12 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var path = require('path');
 var mongoose = require('mongoose');
 var User = require('../models/user');
 var DoshaResults = require('../models/dosharesults');
 
-
-//post call to save quiz results as new quiz object instance to mongoDB
 router.post('/create', function(req, res, next){
     console.log(req.body);
 
@@ -33,16 +30,9 @@ router.post('/create', function(req, res, next){
 
     res.json(user)
 });
-
-//get call to get data back from DB
-router.get('/getData', function(req, res, next){
-    console.log(res);
-});
-
-//wildcard get call
-router.get('/*', function(req, res, next){
-    var file = req.params[0] || '/assets/views/index.html';
-    res.sendFile(path.join(__dirname, '../public', file));
-});
+//
+//router.get('/getData', function(req, res, next){
+//    console.log(res);
+//});
 
 module.exports = router;

@@ -5,14 +5,12 @@ var vataCount = 0,
     kaphaCount = 0,
     userDoshaResults = {};
 
-/////////////////FACTORIES
-//doshApp.factory('ChangeRoute', ['$location', 'route', function($location, route){
-//
-//}]);
 
 ////////////////primary dosha app controller -- controls Welcome page
 doshApp.controller('DoshaController', ['$scope', '$location', function($scope, $location){
     console.log('dosha controller is up');
+
+    $scope.testing = "we're up!";
 
     //change route function
     $scope.changeRoute = function(route){
@@ -34,7 +32,7 @@ doshApp.controller('ResultsController', ['$scope', function($scope){
 }]);
 
 ///////////////dosha quiz controller controls Quiz page
-doshApp.controller('QuizController', ['$scope', '$location', function($scope, $location){
+doshApp.controller('QuizController', ['$scope', '$location', '$http', function($scope, $location, $http){
     console.log('quiz controller is up');
 
     //resetting dosha quiz variables
@@ -360,15 +358,26 @@ doshApp.controller('QuizController', ['$scope', '$location', function($scope, $l
     $scope.currentQuestion = $scope.questions[$scope.slideCounter].question;
     $scope.nextQuestion = $scope.questions[$scope.slideCounter + 1].question;
 
-    //function to flip to new slide when a button choice is clicked
-    $scope.nextQuestion = function(){
-        if($scope.slideCounter < $scope.questions.length - 1){
-            $scope.questions[$scope.slideCounter].show = false;
-            $scope.questions[$scope.slideCounter + 1].show = true;
-        } else {
-            //POST QUIZ RESULTS TO MONGODB
-            $scope.changeRoute('/results');
-        };
+    //function to make database call
+    $scope.getData = function(){
+        $http.get('/getData').then(function(res){
+            if(res.status !== 200){
+                throw new Error("failed to retrieve data from server");
+            }
+            console.log(res.data);
+        });
+    };
+
+    $scope.getData();
+
+    //function to make database post call
+    $scope.postResults = function(){
+        $http.post('/create', data).then(function(req, res, next){
+            if(res.status !== 200){
+                throw new Error("failed to retrieve data from server");
+            }
+            console.log(req);
+        });
     };
 
     //function to store quiz results to user object array
@@ -376,7 +385,19 @@ doshApp.controller('QuizController', ['$scope', '$location', function($scope, $l
         userDoshaResults.quizResult = [vataCount, pittaCount, kaphaCount];
         console.log(userDoshaResults.quizResult);
         return userDoshaResults.quizResult;
-        //add in current date/time as object property per quiz taken
+    };
+
+    //function to flip to new slide when a button choice is clicked
+    $scope.nextQuestion = function(){
+        if($scope.slideCounter < $scope.questions.length - 1){
+            $scope.questions[$scope.slideCounter].show = false;
+            $scope.questions[$scope.slideCounter + 1].show = true;
+        } else {
+            //NAV TO RESULTS PAGE & POST QUIZ RESULTS TO MONGODB
+            $scope.changeRoute('/results');
+            $scope.postResults(userDoshaResults.quizResult);
+        };
     };
 
 }]);
+
