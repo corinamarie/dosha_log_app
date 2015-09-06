@@ -372,17 +372,19 @@ doshApp.controller('QuizController', ['$scope', '$location', '$http', function($
 
     //function to make database post call
     $scope.postResults = function(){
+        var data = userDoshaResults.quizResult;
         $http.post('/create', data).then(function(req, res, next){
             if(res.status !== 200){
                 throw new Error("failed to retrieve data from server");
             }
             console.log(req);
+            console.log(data);
         });
     };
 
     //function to store quiz results to user object array
     $scope.quizResult = function(){
-        userDoshaResults.quizResult = [vataCount, pittaCount, kaphaCount];
+        userDoshaResults.quizResult = {vata: vataCount, pitta: pittaCount, kapha: kaphaCount};
         console.log(userDoshaResults.quizResult);
         return userDoshaResults.quizResult;
     };
@@ -395,7 +397,7 @@ doshApp.controller('QuizController', ['$scope', '$location', '$http', function($
         } else {
             //NAV TO RESULTS PAGE & POST QUIZ RESULTS TO MONGODB
             $scope.changeRoute('/results');
-            $scope.postResults(userDoshaResults.quizResult);
+            $scope.postResults();
         };
     };
 

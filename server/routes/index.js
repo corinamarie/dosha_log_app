@@ -17,13 +17,13 @@ router.post('/create', function(req, res, next){
     var doshaResultsArray = [];
 
     //giving document items unique id's in mongoDB
-    for(var i = 0; i < req.body.dosharesults.length; i++){
-        var dosharesults = new DoshaResults({
-            quizresults: req.body.dosharesults[i].quizresults,
-            doshabalance: req.body.dosharesults[i].doshabalance
-        });
-        doshaResultsArray.push(dosharesults);
-    }
+    //for(var i = 0; i < req.body.dosharesults.length; i++){
+    //    var dosharesults = new DoshaResults({
+    //        quizresults: req.body.dosharesults[i].quizresults,
+    //        doshabalance: req.body.dosharesults[i].doshabalance
+    //    });
+    //    doshaResultsArray.push(dosharesults);
+    //}
 
     user.dosharesults = doshaResultsArray;
 
@@ -31,7 +31,7 @@ router.post('/create', function(req, res, next){
         console.log(err.message);
     });
 
-    res.json(user)
+    res.json(req);
 });
 
 //get call to get data back from DB
