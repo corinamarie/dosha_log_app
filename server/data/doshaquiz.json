@@ -1,0 +1,265 @@
+{
+  "questions":
+  {
+    "question": "height",
+    "answer":{
+      "vata": "tall or very short",
+      "pitta": "medium",
+      "kapha": "usually short but can be tall and large"
+    },
+    "show": "true"
+  },
+  {
+    "question": "frame",
+    "answer":{
+      "vata": "thin, bony good muscles",
+      "pitta": "moderate, developed",
+      "kapha": "large, well-formed"
+    },
+    "show": "false"
+  },
+  {
+    "question": "weight",
+    "answer":{
+      "vata": "low, hard to hold weight",
+      "pitta": "moderate",
+      "kapha": "heavy, hard to lose weight"
+    },
+    "show": "false"
+  },
+  {
+    "question": "skin luster",
+    "answer":{
+      "vata": "dull or dusky",
+      "pitta": "ruddy, lustrous",
+      "kapha": "white or pale"
+    },
+    "show": "false"
+  },
+  {
+    "question": "skin texture",
+    "answer": {
+      "vata": "dry, rough, thin",
+      "pitta": "warm, oily",
+      "kapha": "cold, damp, thick"
+    },
+    "show": "false"
+  },
+  {
+    "question": "eyes",
+    "answer":{
+      "vata": "small, nervous",
+      "pitta": "piercing, easily inflamed",
+      "kapha": "large, white"
+    },
+    "show": "false"
+  },
+  {
+    "question": "hair",
+    "answer":{
+      "vata": "dry, thin",
+      "pitta": "thin, oily",
+      "kapha": "thick, oily, wavy, lustrous"
+    },
+    "show": "false"
+  },
+  {
+    "question": "teeth",
+    "answer":{
+      "vata": "crooked, poorly formed",
+      "pitta": "moderate, bleeding gums",
+      "kapha": "large, well formed"
+    },
+    "show": "false"
+  },
+  {
+    "question": "nails",
+    "answer":{
+      "vata": "rough, brittle",
+      "pitta": "soft, pink",
+      "kapha": "soft, white"
+    },
+    "show": "false"
+  },
+  {
+    "question": "joints",
+    "answer": {
+      "vata": "stiff, crack easily",
+      "pitta": "loose",
+      "kapha": "firm, large"
+    },
+    "show": "false"
+  },
+  {
+    "question": "circulation",
+    "answer":{
+      "vata": "poor, variable",
+      "pitta": "good",
+      "kapha": "moderate"
+    },
+    "show": "false"
+  },
+  {
+    "question": "appetite",
+    "answer":{
+      "vata": "variable, nervous",
+      "pitta": "high, excessive",
+      "kapha": "mdoerate but constant"
+    },
+    "show": "false"
+  },
+  {
+    "question": "thirst",
+    "answer":
+    {
+      "vata": "low, scanty",
+      "pitta": "high",
+      "kapha": "moderate"
+    },
+    "show": "false"
+  },
+  {
+    "question": "sweating",
+    "answer":{
+      "vata": "scanty",
+      "pitta": "profuse but not enduring",
+      "kapha": "low to start but profuse"
+    },
+    "show": "false"
+  },
+  {
+    "question": "stool",
+    "answer": {
+      "vata": "hard or dry",
+      "pitta": "soft, loose",
+      "kapha": "normal"
+    },
+    "show": "false"
+  },
+  {
+    "question": "urination",
+    "answer":{
+      "vata": "scanty",
+      "pitta": "profuse, yellow",
+      "kapha": "moderate, clear"
+    },
+    "show": "false"
+  },
+  {
+    "question": "sensitivities",
+    "answer":{
+      "vata": "cold, dryness, wind",
+      "pitta": "heat, sunlight, fire",
+      "kapha": "cold, damp"
+    },
+    "show": "false"
+  },
+  {
+    "question": "immune function",
+    "answer":{
+      "vata": "low, variable",
+      "pitta": "moderate, sensitive to heat",
+      "kapha": "high"
+    },
+    "show": "false"
+  },
+  {
+    "question": "disease tendency",
+    "answer":{
+      "vata": "pain, inflammation",
+      "pitta": "fever, edema",
+      "kapha": "congestion"
+    },
+    "show": "false"
+  },
+  {
+    "question": "disease type",
+    "answer": {
+      "vata": "nervous",
+      "pitta": "blood, liver",
+      "kapha": "mucous, lungs"
+    },
+    "show": "false"
+  },
+  {
+    "question": "activity",
+    "answer":{
+      "vata": "high, restless",
+      "pitta": "moderate",
+      "kapha": "low, moves slowly"
+    },
+    "show": "false"
+  },
+  {
+    "question": "endurance",
+    "answer":{
+      "vata": "poor, easily exhausted",
+      "pitta": "moderate but focused",
+      "kapha": "high"
+    },
+    "show": "false"
+  },
+  {
+    "question": "sleep",
+    "answer":{
+      "vata": "poor, disturbed",
+      "pitta": "variable",
+      "kapha": "excess"
+    },
+    "show": "false"
+  },
+  {
+    "question": "dreams",
+    "answer":{
+      "vata": "frequent, colorful",
+      "pitta": "moderate, romantic",
+      "kapha": "infrequent, disturbed"
+    },
+    "show": "false"
+  },
+  {
+    "question": "memory",
+    "answer": {
+      "vata": "quick but absent-minded",
+      "pitta": "sharp, clear",
+      "kapha": "slow but steady"
+    },
+    "show": "false"
+  },
+  {
+    "question": "speech",
+    "answer":{
+      "vata": "fast, frequent",
+      "pitta": "sharp, cutting",
+      "kapha": "slow, melodious"
+    },
+    "show": "false"
+  },
+  {
+    "question": "temperament",
+    "answer":{
+      "vata": "nervous, changeable",
+      "pitta": "motivated",
+      "kapha": "content, conservative"
+    },
+    "show": "false"
+  },
+  {
+    "question": "positive emotions",
+    "answer":{
+      "vata": "adaptability",
+      "pitta": "courage",
+      "kapha": "love"
+    },
+    "show": "false"
+  },
+  {
+    "question": "negative emotions",
+    "answer":{
+      "vata": "fear",
+      "pitta": "anger",
+      "kapha": "attachment"
+    },
+    "show": "false"
+  }
+}
