@@ -47,22 +47,50 @@ var DoshaResults = require('../models/dosharesults');
 
 
 router.post('/create', function(req, res){
-    console.log("testing post call", req.body);
+
+    console.log("post req: ", req.body);
+    console.log("post res: ", res.body);
     var results = new DoshaResults({
         doshabalance: req.body.doshabalance,
         quizresults: req.body.quizresults
     });
-    console.log(results);
+    console.log("post call results var: ", results);
 
     results.save(function(err) {
         if (err)console.log("uh-oh...", err);
         console.log("the create post call worked!");
     });
+    res.send("results saved");
+    console.log("post req 2: ", req.body);
+    console.log("post res 2: ", res.body);
 
 });
 
+// EX CAN BE DELETED
+//router.get('/', function(req, res){
+//    resources.find({}, function(err,docs) {
+//        if (err) {
+//            res.send({error:err});
+//        } else {
+//
+//            res.json({resources:docs});
+//        }
+//
+//    });
+//
+//});
+//
+//
+
 //get call to get data back from DB
 router.get('/getData', function(req, res, next){
+    dosharesults.find(function(err, results){
+        if (err) {
+            res.send({error:err});
+        } else {
+            res.json(results);
+        }
+    });
     console.log("this is the router get call res.body", res.body);
     console.log("this is the router get call req ", req.body);
 });

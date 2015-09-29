@@ -8,7 +8,6 @@ var vataCount = 0,
 
 ////////////////primary dosha app controller -- controls Welcome page
 doshApp.controller('DoshaController', ['$scope', '$location', function($scope, $location){
-    console.log('dosha controller is up');
 
     $scope.testing = "we're up!";
 
@@ -20,20 +19,41 @@ doshApp.controller('DoshaController', ['$scope', '$location', function($scope, $
 }]);
 
 ///////////////results controller controls Results & History pages
-doshApp.controller('ResultsController', ['$scope', function($scope){
-    console.log('results controller is up');
-    console.log(userDoshaResults);
+doshApp.controller('ResultsController', ['$scope', '$http', function($scope, $http){
 
     //recapturing global variable data from quiz results
     $scope.vataCount = vataCount;
     $scope.pittaCount = pittaCount;
     $scope.kaphaCount = kaphaCount;
 
+    //function to make database call
+    $scope.getData = function(){
+        $http.get('/getData').then(function(response){
+            if(response.status !== 200){
+                throw new Error("failed to retrieve data from server");
+            }
+            $scope.doshaHistory = response.data;
+            console.log("client get response: ", response.body);
+            console.log("this is scope.history: ", $scope.doshaHistory);
+        });
+    };
+
+    //matt's get call --EX< CAN BE DELETED
+    //$scope.getSchools = function(){
+    //    //GET
+    //    $http.get('/schools/getschools').then(function(response){
+    //        $scope.schoolData = response.data;
+    //
+    //    });
+    //};
+    ///
+
+    $scope.getData();
+
 }]);
 
 ///////////////dosha quiz controller controls Quiz page
 doshApp.controller('QuizController', ['$scope', '$location', '$http', function($scope, $location, $http){
-    console.log('quiz controller is up');
 
     //resetting dosha quiz variables
     vataCount = 0;
@@ -67,7 +87,6 @@ doshApp.controller('QuizController', ['$scope', '$location', '$http', function($
 
     //variable to count and move through question slides
     $scope.slideCounter = 0;
-    console.log("slideCounter var: ", $scope.slideCounter);
 
     //change route function
     $scope.changeRoute = function(route){
@@ -77,7 +96,6 @@ doshApp.controller('QuizController', ['$scope', '$location', '$http', function($
     //variable counters for each dosha, with functions to save each click to global variables
     $scope.vataBtnCounter = function(){
         vataCount += 1;
-        console.log("vata points: " + vataCount);
         $scope.quizResult();
         $scope.nextQuestion();
         $scope.slideCounter += 1;
@@ -101,20 +119,7 @@ doshApp.controller('QuizController', ['$scope', '$location', '$http', function($
     $scope.currentQuestion = $scope.questions[$scope.slideCounter].question;
     $scope.nextQuestion = $scope.questions[$scope.slideCounter + 1].question;
 
-    //function to make database call
-    $scope.getData = function(){
-        $http.get('/getData').then(function(res){
-            if(res.status !== 200){
-                throw new Error("failed to retrieve data from server");
-            }
-            //console.log("the getData get call is working! res.data = ", res.data);
-        });
-    };
-
-    $scope.getData();
-
     //function to make database post call
-
     $scope.postResults = function(){
         var dataObj = userDoshaResults.quizresults;
         var dosha = $scope.dosha(vataCount, pittaCount, kaphaCount);
