@@ -117,15 +117,15 @@ doshApp.controller('QuizController', ['$scope', '$location', '$http', function($
 
     $scope.postResults = function(){
         var dataObj = userDoshaResults.quizresults;
+        var dosha = $scope.dosha(vataCount, pittaCount, kaphaCount);
         var data = {
+            doshabalance: dosha,
             quizresults: dataObj
         };
         $http.post('/create', data).then(function(req, res, next){
             if(res.status !== 200){
                 throw new Error("failed to retrieve data from server");
             }
-            console.log("the post call worked! the req var = ", req);
-            console.log("the post call worked! the data var = ", data);
         });
     };
 
@@ -133,6 +133,30 @@ doshApp.controller('QuizController', ['$scope', '$location', '$http', function($
     $scope.quizResult = function(){
         userDoshaResults.quizresults = {vatapts: vataCount, pittapts: pittaCount, kaphapts: kaphaCount};
         return userDoshaResults.quizresults;
+    };
+
+    //determining dosha type from quizresults
+    $scope.dosha = function(v, p, k){
+        var dosha;
+
+        if (v > p && v > k) {
+            dosha = "vata";
+        } else if (p > v && p > k) {
+            dosha = "pitta";
+        } else if (k > p && k > v){
+            dosha = "kapha";
+        } else if (k == p && p == v){
+            dosha = "tridoshic";
+        } else if (k == p && k !== v){
+            dosha = "kapha pitta";
+        } else if (p == v && p !== k){
+            dosha = "pitta vata";
+        } else if (k == v && k !== p){
+            dosha = "vata kapha";
+        }
+
+        return dosha;
+
     };
 
     //function to flip to new slide when a button choice is clicked

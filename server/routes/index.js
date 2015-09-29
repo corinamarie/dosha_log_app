@@ -7,48 +7,64 @@ var DoshaResults = require('../models/dosharesults');
 
 
 //post call to save quiz results as new quiz object instance to mongoDB
-router.post('/create', function(req, res, next){
-    console.log("post call init ", req.body);
+//router.post('/create', function(req, res, next){
+//    console.log("post call init ", req.body);
+//
+//    DoshaResults.create(req.body, function(err){
+//        //res.json(post);
+//        res.send("database object added successfully!");
+//        if(err){
+//            console.log("error: ", err);
+//            //next(err);
+//        }
+//        console.log("post call complete; ", res.body);
+//    });
+//
+//    //var doshaResultsArray = [];
+//    //
+//    //var user = new User({
+//    //    username: req.body.username,
+//    //    dosharesults: doshaResultsArray
+//    //});
+//
+//    //giving document items unique id's in mongoDB
+//    //for(var i = 0; i < req.body.dosharesults.length; i++){
+//    //    var dosharesults = new DoshaResults({
+//    //        quizresults: req.body.dosharesults[i].quizresults,
+//    //        doshabalance: req.body.dosharesults[i].doshabalance
+//    //    });
+//    //    doshaResultsArray.push(dosharesults);
+//    //}
+//
+//    //user.dosharesults = doshaResultsArray;
+//    //
+//    //user.save(function(err){
+//    //    console.log(err.message);
+//    //});
+//    //
+//    //res.json(req);
+//});
 
-    DoshaResults.create(req.body, function(err){
-        //res.json(post);
-        res.send("database object added successfully!");
-        if(err){
-            console.log("error: ", err);
-            //next(err);
-        }
-        console.log("post call complete; ", res.body);
+
+router.post('/create', function(req, res){
+    console.log("testing post call", req.body);
+    var results = new DoshaResults({
+        doshabalance: req.body.doshabalance,
+        quizresults: req.body.quizresults
+    });
+    console.log(results);
+
+    results.save(function(err) {
+        if (err)console.log("uh-oh...", err);
+        console.log("the create post call worked!");
     });
 
-    //var doshaResultsArray = [];
-    //
-    //var user = new User({
-    //    username: req.body.username,
-    //    dosharesults: doshaResultsArray
-    //});
-
-    //giving document items unique id's in mongoDB
-    //for(var i = 0; i < req.body.dosharesults.length; i++){
-    //    var dosharesults = new DoshaResults({
-    //        quizresults: req.body.dosharesults[i].quizresults,
-    //        doshabalance: req.body.dosharesults[i].doshabalance
-    //    });
-    //    doshaResultsArray.push(dosharesults);
-    //}
-
-    //user.dosharesults = doshaResultsArray;
-    //
-    //user.save(function(err){
-    //    console.log(err.message);
-    //});
-    //
-    //res.json(req);
 });
 
 //get call to get data back from DB
 router.get('/getData', function(req, res, next){
-    //console.log("this is the router get call res.body", res.body);
-    //console.log("this is the router get call req ", req.body);
+    console.log("this is the router get call res.body", res.body);
+    console.log("this is the router get call req ", req.body);
 });
 
 //wildcard get call
