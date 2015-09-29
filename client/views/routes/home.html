@@ -1,9 +1,5 @@
 <!-- home page: user sign in fields and submit button, option to take quiz as a guest -->
 
-<div>
-    <button type="submit" class="takeQuizBtn btn btn-default" ng-click="changeRoute('/quiz')">take quiz as a guest</button>
-</div>
-
 <form novalidate>
 
     <p><input type="text" name="username" placeholder="enter username" ng-model="user.name" required></p>
@@ -12,4 +8,6 @@
 
 </form>
 
-<p>{{user.name}}{{user.password}}</p>
+    <div>
+       <p><button type="submit" class="takeQuizBtn btn btn-default" ng-click="changeRoute('/quiz')">take quiz as a guest</button></p>
+    </div>

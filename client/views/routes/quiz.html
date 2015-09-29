@@ -1,17 +1,17 @@
 <!-- quiz page: this will be the quiz page, that will cycle through a list of
     question "cards" -->
 
-<div>
-    <div>
-        <form>
-            <input type="text" name="username" placeholder="enter name" ng-model="user.name" required>
-        </form>
-    </div>
-</div>
+<!--<div>-->
+    <!--<div>-->
+        <!--<form>-->
+            <!--<input type="text" name="username" placeholder="enter name" ng-model="user.name" required>-->
+        <!--</form>-->
+    <!--</div>-->
+<!--</div>-->
 
 <div class="col-xs-offset-2 col-xs-8 panel panel-default container-fluid questionCard" ng-repeat="q in questions" ng-show="q.show == true">
     <div class="panel-body col-xs-6">
-        <p class="question">{{q.question}}</p>
+        <p class="question"><h4>question:</h4>{{q.question}}</p>
     </div>
     <div class="panel-body col-xs-6">
         <ul class="answer list-unstyled">

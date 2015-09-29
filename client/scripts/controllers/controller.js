@@ -36,6 +36,9 @@ doshApp.controller('ResultsController', ['$scope', '$http', function($scope, $ht
                 throw new Error("failed to retrieve data from server");
             }
             $scope.userHistory = response.data;
+            //var date = response.data.date;
+            //date.toDateString();
+            //console.log("this is the date var: ", date)
             console.log("this is scope.history: ", $scope.userHistory);
         });
     };
@@ -57,16 +60,52 @@ doshApp.controller('QuizController', ['$scope', '$location', '$http', function($
     //move to mongoDB after that is set up/connected
     $scope.questions = [
         {
-            question: 'faith',
+            question: 'height',
             answer: {
-                vata: 'variable, erratic',
-                pitta: 'strong, determined',
-                kapha: 'steady, slow to change'
+                vata: 'thin, bony good muscles',
+                pitta: 'moderate, developed',
+                kapha: 'large, well-formed'
             },
             show: true
         },
         {
-            question: 'faith2',
+            question: 'weight',
+            answer: {
+                vata: 'low, hard to hold weight',
+                pitta: 'moderate',
+                kapha: 'heavy, hard to lose weight'
+                },
+            show: false
+        },
+        {
+            question: 'skin luster',
+            answer: {
+                vata: 'dull or dusky',
+                pitta: 'ruddy, lustrous',
+                kapha: 'white or pale'
+            },
+            show: false
+        },
+        {
+            question: 'skin texture',
+            answer: {
+                vata: 'dry, rough, thin',
+                pitta: 'warm, oily',
+                kapha: 'cold, damp, thick'
+            },
+            show: false
+        },
+        {
+            question: 'eyes',
+            answer: {
+                vata: 'small, nervous',
+                pitta: 'piercing, easily inflamed',
+                kapha: 'large, white'
+            },
+            show: false
+        },
+        {
+            question: 'faith',
             answer: {
                 vata: 'variable, erratic',
                 pitta: 'strong, determined',
