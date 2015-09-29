@@ -3,7 +3,8 @@
 var vataCount = 0,
     pittaCount = 0,
     kaphaCount = 0,
-    userDoshaResults = {};
+    userDoshaResults = {},
+    userHistory;
 
 
 ////////////////primary dosha app controller -- controls Welcome page
@@ -32,21 +33,10 @@ doshApp.controller('ResultsController', ['$scope', '$http', function($scope, $ht
             if(response.status !== 200){
                 throw new Error("failed to retrieve data from server");
             }
-            $scope.doshaHistory = response.data;
-            console.log("client get response: ", response.body);
-            console.log("this is scope.history: ", $scope.doshaHistory);
+            $scope.userHistory = response.data;
+            console.log("this is scope.history: ", $scope.userHistory);
         });
     };
-
-    //matt's get call --EX< CAN BE DELETED
-    //$scope.getSchools = function(){
-    //    //GET
-    //    $http.get('/schools/getschools').then(function(response){
-    //        $scope.schoolData = response.data;
-    //
-    //    });
-    //};
-    ///
 
     $scope.getData();
 
