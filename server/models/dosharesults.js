@@ -8,6 +8,7 @@ var DoshaQuizResultsSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    //tempName: String,
     doshabalance: String,
     quizresults: {
         vatapts: Number,

@@ -4,7 +4,8 @@ var vataCount = 0,
     pittaCount = 0,
     kaphaCount = 0,
     userDoshaResults = {},
-    userHistory;
+    doshaType,
+    dosha;
 
 
 ////////////////primary dosha app controller -- controls Welcome page
@@ -26,6 +27,7 @@ doshApp.controller('ResultsController', ['$scope', '$http', function($scope, $ht
     $scope.vataCount = vataCount;
     $scope.pittaCount = pittaCount;
     $scope.kaphaCount = kaphaCount;
+    $scope.doshaType = doshaType;
 
     //function to make database call
     $scope.getData = function(){
@@ -132,27 +134,28 @@ doshApp.controller('QuizController', ['$scope', '$location', '$http', function($
 
     //determining dosha type from quizresults
     $scope.dosha = function(v, p, k){
-        var dosha;
 
         if (v > p && v > k) {
-            dosha = "vata";
+            doshaType = "vata";
         } else if (p > v && p > k) {
-            dosha = "pitta";
+            doshaType = "pitta";
         } else if (k > p && k > v){
-            dosha = "kapha";
+            doshaType = "kapha";
         } else if (k == p && p == v){
-            dosha = "tridoshic";
+            doshaType = "tridoshic";
         } else if (k == p && k !== v){
-            dosha = "kapha pitta";
+            doshaType = "kapha pitta";
         } else if (p == v && p !== k){
-            dosha = "pitta vata";
+            doshaType = "pitta vata";
         } else if (k == v && k !== p){
-            dosha = "vata kapha";
+            doshaType = "vata kapha";
         }
 
-        return dosha;
+        //doshaType = dosha;
+        return doshaType;
 
     };
+    //console.log("this is post dosh function console: ", doshaType);
 
     //function to flip to new slide when a button choice is clicked
     $scope.nextQuestion = function(){

@@ -1,14 +1,11 @@
 <div class="panel-body panel results">
 
-    <h3 class="panel-heading">history or whatever</h3>
+    <h3 class="panel-heading">dosha history</h3>
 
     <div>
-        <p>your vata score is: {{vataCount}}</p>
-        <p>your pitta score is: {{pittaCount}}</p>
-        <p>your kapha score is: {{kaphaCount}}</p>
-
-        <div ng-repeat="result in userHistory">
-            <p>{{result.doshabalance}}</p>
+        <div class="panel-body" ng-repeat="result in userHistory">
+            <h3>date: {{result.date}}</h3>
+            <p>dosha result: {{result.doshabalance}}</p>
         </div>
     </div>
 

@@ -2,12 +2,21 @@ body {
     font-family: "Courier New";
     color: black;
     background-color: #2D3C41;
-    background-image: url('../images/mala.png') no-repeat;
+    /*background-image: url('../images/mala.png') no-repeat;*/
     text-align: center;
 }
 
+p {
+    margin: 2em;
+}
+
+.mainDiv {
+    background-image: url('../images/mala.png') no-repeat;
+}
+
 .questionCard {
-    background-color: #7499A7;
+    background-color: #3F535B;
+    border: 1px solid black;
 }
 
 .jumbotron {
@@ -15,6 +24,7 @@ body {
     background-color: #3F535B;
     border-radius: 2px;
     color: white;
+    border: 1px solid black;
 }
 
 .question, .answer {
