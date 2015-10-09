@@ -1,4 +1,4 @@
-<div class="panel-body panel results col-xs-offset-3 col-xs-6">
+<div class="panel-body panel histResults results col-xs-offset-3 col-xs-6">
 
     <h3 class="panel-heading">dosha history</h3>
 
@@ -6,6 +6,9 @@
         <div class="resultspane" ng-repeat="result in userHistory">
             <h4>dosha result: {{result.doshabalance}}</h4>
             <h5>date: {{result.date}}</h5>
+            <h5 class="vata">vata: {{result.quizresults.vatapts}}</h5>
+            <h5 class="pitta">pitta: {{result.quizresults.pittapts}}</h5>
+            <h5 class="kapha">kapha: {{result.quizresults.kaphapts}}</h5>
         </div>
     </div>
 

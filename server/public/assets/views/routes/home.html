@@ -1,13 +1,18 @@
 <!-- home page: user sign in fields and submit button, option to take quiz as a guest -->
 
-<form novalidate>
+<div class="panel-body panel histResults results col-xs-offset-3 col-xs-6">
 
-    <p><input type="text" name="username" placeholder="enter username" ng-model="user.name" required></p>
-    <p><input type="password" name="password" placeholder="enter new password" ng-model="user.password" required></p>
-    <p><button type="submit" class="takeQuizBtn btn btn-default">log in</button></p>
+    <h3 class="panel-heading">welcome to dosha log!</h3>
 
-</form>
+    <form novalidate>
 
-    <div>
-       <p><button type="submit" class="takeQuizBtn btn btn-default" ng-click="changeRoute('/quiz')">take quiz as a guest</button></p>
-    </div>
+        <p><input type="text" name="username" placeholder="enter username" ng-model="user.name" required></p>
+        <p><input type="password" name="password" placeholder="enter new password" ng-model="user.password" required></p>
+        <p><button type="submit" class="takeQuizBtn btn btn-default">log in</button></p>
+
+    </form>
+
+        <div>
+           <p><button type="submit" class="takeQuizBtn btn btn-default" ng-click="changeRoute('/quiz')">take quiz as a guest</button></p>
+        </div>
+</div>

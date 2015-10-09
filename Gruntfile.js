@@ -82,6 +82,21 @@ module.exports = function(grunt){
                     "views/routes/logout.html"
                 ],
                 "dest": "server/public/assets/"
+            },
+            fontAwesome: {
+                expand: true,
+                cwd: 'node_modules',
+                src: [
+                    "font-awesome/css/font-awesome.min.css",
+                    "font-awesome/css/font-awesome.min.css.map",
+                    "font-awesome/fonts/FontAwesome.otf",
+                    "font-awesome/fonts/fontawesome-webfont.eot",
+                    "font-awesome/fonts/fontawesome-webfont.svg",
+                    "font-awesome/fonts/fontawesome-webfont.ttf",
+                    "font-awesome/fonts/fontawesome-webfont.woff",
+                    "font-awesome/fonts/fontawesome-webfont.woff2"
+                ],
+                "dest": "server/public/vendors/"
             }
         }
     });

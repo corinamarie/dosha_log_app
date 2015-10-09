@@ -1,9 +1,10 @@
 body {
-    font-family: "Courier New";
-    color: black;
-    background-color: #2D3C41;
-    /*background-image: url('../images/mala.png') no-repeat;*/
+    font-family: "Lancelot", "Courier New";
+    color: white;
+    /*background-color: #2D3C41;*/
     text-align: center;
+    background: url('/assets/images/mala.jpg') no-repeat;
+    background: cover;
 }
 
 p {
@@ -19,32 +20,36 @@ button {
 }
 
 .panel {
-    background-color: #2D3C41;
-}
-
-.mainDiv {
-    background-image: url('../images/mala.png') no-repeat;
+    background-color: rgba(45,60,65,0.5);
+    border: none;
+    -webkit-box-shadow: inset 1px 1px 37px 31px rgba(0,0,0,0.25);
+    -moz-box-shadow: inset 1px 1px 37px 31px rgba(0,0,0,0.25);
+    box-shadow: inset 1px 1px 37px 31px rgba(0,0,0,0.25);
 }
 
 .questionCard {
-    background-color: #3F535B;
-    border: 1px solid black;
+    background-color: rgba(45,60,65,0.5);
+    font-size: 2em;
 }
 
 .jumbotron {
     text-align: center;
-    background-color: #3F535B;
-    border-radius: 2px;
+    background-color: rgba(45,60,65,0.5);
     color: white;
-    border: 1px solid black;
-    /*margin-top: 25%;*/
+    height: 350px;
+    width: 100%;
 }
 
-.resultspane, .resultspane {
+.resultspane {
     border: 1px solid black;
     border-radius: 2px;
     margin: 1em;
-    background-color: #3F535B;
+}
+
+.histResults {
+    height: 600px;
+    overflow: scroll;
+    box-shadow: black invert;
 }
 
 .question, .answer {
@@ -54,6 +59,11 @@ button {
     border-radius: 5px;
 }
 
+h4 {
+    font-size: 1em;
+    color: white;
+}
+
 .question {
     margin-top: 25%;
 }
@@ -61,4 +71,60 @@ button {
 .vataBtn, .kaphaBtn, .pittaBtn {
     width: 75%;
     margin: 1em;
+    background-color: rgba(0,0,0,0.5);
+    font-size: .75em;
+    color: #23527c;
+    border-radius: 5px;
+    border: none;
+    -webkit-box-shadow: inset 1px 1px 37px 31px rgba(0,0,0,0.25);
+    -moz-box-shadow: inset 1px 1px 37px 31px rgba(0,0,0,0.25);
+    box-shadow: inset 1px 1px 37px 31px rgba(0,0,0,0.25);
+    padding: 5%;
+}
+
+.vataBtn:hover, .kaphaBtn:hover, .pittaBtn:hover {
+    background-color: rgba(0,0,0,0.25);
+    border: none;
+    color: antiquewhite;
+}
+
+#dropdownMenu1 {
+    width: 100%;
+    height: 100px;
+    padding: 1%;
+    /*font-size: 1em;*/
+    color: white;
+    background-color: transparent;
+}
+
+.dropdown-menu {
+    background: transparent;
+    border: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+nav, nav ul {
+    position: fixed;
+    float: left;
+    background-color: transparent;
+    text-align: left;
+    text-decoration: none;
+    margin-top: -3%;
+}
+
+nav a {
+    display: block;
+    font-size: 1.2em;
+    font-family: "Lancelot", "Courier New";
+    color: black;
+    text-decoration: none;
+    padding: 3%;
+}
+
+a:focus, a:hover {
+    color: #23527c;
+    text-decoration: none;
 }
