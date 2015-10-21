@@ -13,6 +13,7 @@ p {
 
 input {
     width: 50%;
+    color: black;
 }
 
 button {
@@ -88,6 +89,12 @@ h4 {
     color: antiquewhite;
 }
 
+.vataBtn:active, .kaphaBtn:active, .pittaBtn:active {
+    background-color: rgba(0,0,0,0.25);
+    border: none;
+    color: antiquewhite;
+}
+
 #dropdownMenu1 {
     width: 100%;
     height: 100px;
@@ -98,8 +105,8 @@ h4 {
 }
 
 .dropdown-menu {
-    background: transparent;
-    border: none;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid black;
 }
 
 .dropdown:hover .dropdown-menu {
