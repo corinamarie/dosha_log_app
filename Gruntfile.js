@@ -20,7 +20,8 @@ module.exports = function(grunt){
                 cwd: 'node_modules',
                 src: [
                     "angular/angular.min.js",
-                    "angular/angular.min.js.map"
+                    "angular/angular.min.js.map",
+                    "angular/angular.js"
                 ],
                 "dest": "server/public/vendors/"
             },
@@ -82,6 +83,25 @@ module.exports = function(grunt){
                     "views/routes/logout.html"
                 ],
                 "dest": "server/public/assets/"
+            },
+            angularCharts: {
+                expand: true,
+                cwd: 'bower_components',
+                src: [
+                    "angular-chart.js/dist/angular-chart.min.js",
+                    "angular-chart.js/dist/angular-chart.min.css",
+                    "angular-chart.js/dist/angular-chart.min.js.map",
+                    "angular-chart.js/dist/angular-chart.min.css.map"
+                ],
+                "dest": "server/public/vendors/"
+            },
+            chartJS: {
+                expand: true,
+                cwd: 'bower_components',
+                src: [
+                    "Chart.js/Chart.min.js"
+                ],
+                "dest": "server/public/vendors/"
             },
             fontAwesome: {
                 expand: true,

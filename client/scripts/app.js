@@ -1,6 +1,6 @@
 console.log('joder');
 
-var doshApp = angular.module('doshApp', ['ngRoute', 'appControllers']);
+var doshApp = angular.module('doshApp', ['ngRoute', 'chart.js', 'appControllers']);
 
 var appControllers = angular.module('appControllers', []);
 

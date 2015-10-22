@@ -35,11 +35,23 @@ doshApp.controller('ResultsController', ['$scope', '$http', function($scope, $ht
             if(response.status !== 200){
                 throw new Error("failed to retrieve data from server");
             }
-            $scope.userHistory = response.data;
+            userHistory = response.data;
             //var date = response.data.date;
             //date.toDateString();
-            //console.log("this is the date var: ", date)
-            console.log("this is scope.history: ", $scope.userHistory);
+            //console.log("this is the date var: ", date);
+            console.log("this is userHistory: ", userHistory);
+
+            //saving data into $scope
+            $scope.data = [];
+            console.log("testing array ", userHistory[9].quizresults);
+            $scope.createArray = function(userHistory){
+                for(var i = 0; i <= userHistory.length; i++){
+                    $scope.data.push(userHistory[i].quizresults);
+                }
+                return $scope.data;
+                console.log("this is scope.data ", $scope.data);
+            };
+            $scope.createArray();
         });
     };
 
